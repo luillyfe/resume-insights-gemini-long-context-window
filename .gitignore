@@ -1,7 +1,7 @@
 # Ignore virtual environment directories
 venv/
 pyenv/
-resume-insights/
+gemini-context/
 
 # Ignore Python bytecode files
 *.pyc
