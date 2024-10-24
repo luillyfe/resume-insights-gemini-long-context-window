@@ -189,8 +189,8 @@ class TestIntegration:
         main()
 
         # Verify the complete workflow
-        assert "insights" in mock_streamlit["state"]
-        assert "resumeInsights" in mock_streamlit["state"]
+        assert hasattr(mock_streamlit["state"], "insights")
+        assert hasattr(mock_streamlit["state"], "resumeInsights")
 
         # Verify skills display
         with patch("streamlit.selectbox", return_value="Python"):
