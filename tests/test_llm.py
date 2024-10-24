@@ -163,7 +163,7 @@ class TestUploadToGemini:
         with pytest.raises(Exception):
             upload_to_gemini("nonexistent_file.txt")
 
-    # @pytest.mark.integration
+    @pytest.mark.integration
     def test_environment_variables(self):
         """Test that required environment variables are set"""
         assert "GEMINI_API_KEY" in os.environ, "GEMINI_API_KEY not set in environment"

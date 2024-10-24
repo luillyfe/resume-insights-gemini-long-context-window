@@ -251,7 +251,7 @@ class TestResumeInsights:
         assert "Developer" in skills_prompt
         assert "Company" in skills_prompt
 
-    # @pytest.mark.integration
+    @pytest.mark.integration
     def test_end_to_end_workflow(
         self, mock_llm, sample_candidate_json, sample_job_skill_json
     ):
