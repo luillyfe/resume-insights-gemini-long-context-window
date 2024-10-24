@@ -89,8 +89,7 @@ def display_skills(skills: list[str]):
         if "job_matching_skills" not in st.session_state:
             display_skills_proficiency(skills)
         else:
-            pass
-            # display_skills_proficiency(st.session_state.job_matching_skills)
+            display_skills_proficiency(st.session_state.job_matching_skills)
 
         # Expandable section for skill details
         job_position = st.selectbox(
@@ -118,11 +117,11 @@ def display_skills(skills: list[str]):
                 )
                 st.rerun()
 
-            with st.expander("Skill Relevance"):
-                for skill in st.session_state.job_matching_skills:
-                    st.write(
-                        f"**{skill}**: {st.session_state.job_matching_skills[skill].relevance}"
-                    )
+        with st.expander("Skill Relevance"):
+            for skill in st.session_state.job_matching_skills:
+                st.write(
+                    f"**{skill}**: {st.session_state.job_matching_skills[skill].relevance}"
+                )
 
         # Interactive elements
         selected_skill = st.selectbox(
