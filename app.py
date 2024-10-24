@@ -53,15 +53,15 @@ def main():
     st.sidebar.title("About")
     st.sidebar.info(
         "This app uses Gemini 1.5 Pro to parse resumes and extract key information. "
-        "Upload a PDF resume to see it in action!"
     )
     st.sidebar.subheader("Long Rank Dependencies")
     st.sidebar.info(
-        """Despite LlamaIndex remarkable ability to bind LLMs with vertical domain data, it faces limitations when reasoning across distributed knowledge nodes. Consider analyzing a Candidate's resume: based on the experience the candidate has been working with a particular skill provide an educated guess about its proficiency level in that ability. The system needs to account for temporal context, project complexity and interconnected experiences."""
+        """Despite LlamaIndex remarkable ability to bind LLMs with vertical domain data, it faces limitations when reasoning across distributed knowledge nodes.
+        Consider analyzing a Candidate's resume: based on the experience the candidate has on a particular skill, ask the LLM to provide an educated guess about its proficiency level in that ability. The system needs to account for temporal context, project complexity and interconnected experiences."""
     )
     st.sidebar.subheader("Long Context Window")
     st.sidebar.info(
-        """Gemini's Long Context Window can help in this complex semantic analysis. Since it wouldn't split the text into smaller segments it processes the entire text into a cohesive unit, enabling more nuanced understanding of relationships between different part of the document."""
+        """Gemini's Long Context Window can help in this complex semantic analysis. Since it wouldn't split the text into smaller segments it processes the entire document into a cohesive unit, enabling more nuanced understanding of relationships between different part of the document."""
     )
 
 
@@ -89,7 +89,8 @@ def display_skills(skills: list[str]):
         if "job_matching_skills" not in st.session_state:
             display_skills_proficiency(skills)
         else:
-            display_skills_proficiency(st.session_state.job_matching_skills)
+            pass
+            # display_skills_proficiency(st.session_state.job_matching_skills)
 
         # Expandable section for skill details
         job_position = st.selectbox(
@@ -123,7 +124,7 @@ def display_skills(skills: list[str]):
                         f"**{skill}**: {st.session_state.job_matching_skills[skill].relevance}"
                     )
 
-        # # Interactive elements
+        # Interactive elements
         selected_skill = st.selectbox(
             "Select a skill to highlight:",
             st.session_state.job_matching_skills,
